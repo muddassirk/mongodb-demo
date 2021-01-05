@@ -6,7 +6,9 @@ var mongoose = require('mongoose')
 
 
 /////////////////////////////////////////////////////////////////////////////////////////////////
-let dbURI = "mongodb+srv://dbuser:dbpassword@cluster0.9qvbs.mongodb.net/abc-database";
+// let dbURI = "mongodb+srv://dbuser:dbpassword@cluster0.9qvbs.mongodb.net/abc-database";
+let dbURI = "mongodb+srv://legend:legend123@cluster0.2c3x6.mongodb.net/testdb?retryWrites=true&w=majority";
+
 // let dbURI = 'mongodb://localhost:27017/abc-database';
 mongoose.connect(dbURI, { useNewUrlParser: true, useUnifiedTopology: true });
 
@@ -66,13 +68,13 @@ app.post("/signup", (req, res, next) => {
     please send name, email, passwod, phone and gender in json body.
     e.g:
     {
-        "name": "Muddassir",
-        "email": "muddassir@gmail.com",
-        "password": "123",
+        "name": "malik",
+        "email": "malikasinger@gmail.com",
+        "password": "abc",
         "phone": "03001234567",
         "gender": "Male"
     }` )
-        return
+    return
 
     }
 
@@ -85,7 +87,7 @@ app.post("/signup", (req, res, next) => {
         "gender": req.body.gender,
     })
 
-
+    
     newUser.save((err, data) => {
         if (!err) {
             res.send("user created")
